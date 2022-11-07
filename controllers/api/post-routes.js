@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Post } = require('../../models/');
 const withAuth = require('../../utils/auth');
-
+// POST - NEW POST
 router.post('/', withAuth, async (req, res) => {
   const body = req.body;
 
@@ -13,6 +13,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// PUT - UPDATE
 router.put('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = await Post.update(req.body, {
@@ -31,21 +32,27 @@ router.put('/:id', withAuth, async (req, res) => {
   }
 });
 
+// DELETE - 
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const [affectedRows] = Post.destroy({
       where: {
         id: req.params.id,
+        userId: req.params.id,
       },
     });
 
     if (affectedRows > 0) {
       res.status(200).end();
+      res.redirect('/dashboard');
+      console.log("deleted post successfully: I am in Post-routes.js");
     } else {
       res.status(404).end();
+      console.log("There's an issue deleting the post: I am in Post-routes.js");
     }
   } catch (err) {
     res.status(500).json(err);
+    console.log("There's an 500 error issue deleting the post: I am in Post-routes.js");
   }
 });
 
