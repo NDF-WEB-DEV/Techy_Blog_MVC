@@ -1,0 +1,43 @@
+        <div class="row justify-content-around bg-dark">
+          <div class="container col-6 cont1">
+            <div class="list-group w-50 pt-4">
+              <h1 class="homehead pb-4 text-light">Latest Posts</h1>
+              <a href="/discussion" class="list-group-item list-group-item-action">
+                <div class="d-flex w-50 justify-content-between">  
+                <div>
+                  {{#each Posts}}
+                    {{if @index '<' 5}}
+                      <h2>{{capitalize post.title}}</h2>
+                      <div>Post by {{post.username}} on {{format_date post.postdate}}</div>
+                      <div>{{post.content}}</div>
+                      <hr>
+                  {{/each}}
+                </div>
+                </div>
+              </a>
+              </div>
+            </div>
+
+            <div class="container col-6 cont2">
+              <div class="list-group w-60 pt-4">
+                  <h1 class="homehead pb-4 text-light">Tech News</h1>
+                  <a href="#" class="list-group-item list-group-item-action">
+                    <button id = 'newnews'> click for newest news</button>
+                    <div class="d-flex w-60 justify-content-between">
+                   
+                      <div id = "technewscontent">
+
+                        
+                      </div>
+
+                      
+                    {{!-- {{newtechnews.head}}
+                    </div>
+                    <div>
+                      {{newtechnews.author}}
+                      {{newtechnews.datapoint}} --}}
+                    </div>
+                </a>
+              </div>
+            </div>
+          </div>

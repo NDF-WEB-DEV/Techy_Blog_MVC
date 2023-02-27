@@ -1,0 +1,54 @@
+ <!-- Form for posting a Blog Post -->
+<h2 class="dischead pt-4 pb-4 bg-dark text-center text-light">Share Your Tech Journey Experiences With Us</h2>
+<br><br>
+<div class="container postcont">
+<div class="col-12">
+<div class="row justify-content-center">
+  <form class="new-post-form text-dark">
+    {{!-- <h2 class="dischead pt-4 pb-4 bg-primary text-center">Share Your Tech Journey Experiences With Us!</h2> --}}
+    <br>
+    <div class="form-group">
+      {{!-- <input class="form-control" type="hidden" id="user_id" name="user_id" value="{{user_id}}"> --}}
+      <div class="form-group ">
+      <label class="labhead" for="title">Post Title: </label>
+      <textarea class="form-control" id="title" name="title" rows="4" cols="25">{{title}}</textarea>
+      </div>
+
+      <div class="form-group">
+      <label class="labhead" for="postdate">Post Date:</label>
+      <textarea class="form-control" type="date" id="postdate" name="postdate" rows="1" cols="25">{{postdate}}</textarea>
+      </div>
+
+      <div class="form-group">
+      <label class="labhead" for="content">Comment/Story:</label>
+      <textarea class="form-control" name="content" id="content" cols="30" rows="10">{{content}}</textarea>
+      </div>
+
+      <div class="form-group">
+      <label class="labhead" for="username">Username</label>
+      <textarea class="form-control" name="username" id="username" cols="30" rows="1">{{username}}</textarea>
+      </div>
+      
+      <button class="form-control bg-primary text-light" type="submit" value="Submit">Post My Story</button>
+  </form>
+</div>
+</div>
+</div>
+<br>
+
+
+<!-- For loop to display list of blog posts in database -->
+{{#each post as |post|}}
+<div class="row mb-4 post"</div>
+    <div class="col-md-5">
+      <h2><a href="/post/{{post.id}}">{{post.title}}</a></h2>
+      <p>Posted by: {{post.username}} on {{post.postdate}}</p>
+    </div>
+    <div class="col-md-7">
+      {{post.content}}
+      <hr>
+    </div>
+ </div> 
+ {{/each}}
+
+<script src="/js/addPost.js"></script>

@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Tech Blog</title>
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/style.css">
-</head>
+    <meta charset="UTF-8">
+    <title>Tech Wreck</title>
+    <link rel="stylesheet" href="/css/jass.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  </head>
+  
+  <body>
+    
+<main>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="/"><img src="/img/techwreck.png" width="40%" alt="TechWreck Logo"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active navtitle" href="/generalresource">General Resources</a>
+      <a class="nav-item nav-link active navtitle" href="/discussion">Discussion Posts</a>
+      <a class="nav-item nav-link active navtitle" href="/video">Videos</a>
+      {{!-- <a class="nav-item nav-link active" href="/signup">Sign-in/Sign-up</a> --}}
+    </div>
+  </div>
+          <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/profile">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="./api/users/signup">Sign-in/Sign-up</a>
 
-<body class="flex-column min-100-vh">
-  <nav class="navbar">
-    <ul>
-      <li class="li-inline nav-item"><a href="/">Home</a></li>
-      <li class="li-inline nav-item"><a href="/dashboard">Dashboard</a></li>
-      <li class="li-inline nav-item"><a href="/login">Login</a></li>
-      <li class="li-inline nav-item"><a href="#" id="logout-link">Logout</a></li>
-    </ul>
-  </nav>
-  <header class="hero">
-    <h1 class="app-title"><a href="/">The Tech Blog</a></h1>
-  </header>
-
-  <main class="col-auto">
-    {{{body}}}
-  </main>
-
-  <footer class="flex-row justify-center">
-    &copy; The Tech Blog Folks
+        {{/if}}
+</nav>
+        {{{body}}}
+</main>
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src="/js/logout.js"></script>
+  {{/if}}
+  <script src = "/js/displayTechNews.js"></script>
+  </body>
+  <footer class="text-center pt-4">
+    <p>Thanks for Visiting!</p>
   </footer>
-</body>
-
-</html>
-<script src="/js/logout.js"></script>
+  </html>

@@ -1,29 +1,35 @@
 {
-  "name": "tech-blog",
+  "name": "resource-blog",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "nodemon": "nodemon server.js",
+    "seed": "node seeds/seed.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/coding-boot-camp/module-14-project-mvc.git"
+    "url": "git+https://github.com/Wakasagi-Burt/resource-blog.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/coding-boot-camp/module-14-project-mvc/issues"
+    "url": "https://github.com/Wakasagi-Burt/resource-blog/issues"
   },
-  "homepage": "https://github.com/coding-boot-camp/module-14-project-mvc#readme",
+  "homepage": "https://github.com/Wakasagi-Burt/resource-blog#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
-    "connect-session-sequelize": "^6.1.1",
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "express-session": "^1.17.0",
-    "mysql2": "^2.0.1",
-    "sequelize": "^5.21.2"
+    "bcrypt": "^5.1.0",
+    "connect-session-sequelize": "^7.1.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "express-session": "^1.17.3",
+    "handlebars": "^4.7.7",
+    "inquirer": "^9.1.4",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.25.3",
+    "uniqid": "^5.4.0"
   }
 }
